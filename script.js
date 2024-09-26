@@ -29,7 +29,7 @@ let options = {
     ""
   ],
   animals: ["Hedgehog", "Rhinoceros", "Squirrel", "Panther", "Walrus", "Zebra", "Monkey", "BaldEagle","Orcas", "Otters", "Capybara","Dragonfly", "Hippo", "Frog",
-"Rattlesnake","Leopard", "Owl", 'Ocelot", ,"Dog","Squid" '],
+"Rattlesnake","Leopard", "Owl", 'Ocelot", "Dog", "Squid" '],
   countries: [
     "India",
     "Hungary",
