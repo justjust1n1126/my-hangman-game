@@ -184,3 +184,146 @@ footer p {
   }
 }
 
+/* ... (keep the existing styles, and add or modify the following) ... */
+
+#result-container {
+  background-color: rgba(15, 52, 96, 0.95);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 80%;
+  margin: 2rem auto;
+}
+
+#result-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#result-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+#result-text span {
+  font-weight: bold;
+  color: #e94560;
+}
+
+#new-game-button {
+  background-color: #e94560;
+  color: #ffffff;
+  border: none;
+  padding: 0.8em 1.5em;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#new-game-button:hover {
+  background-color: #ff6b6b;
+}
+
+#new-game-button:active {
+  transform: scale(0.98);
+}
+
+.win-msg {
+  color: #4caf50;
+}
+
+.lose-msg {
+  color: #e94560;
+}
+
+#hangman-container {
+  width: 200px;
+  height: 250px;
+  margin: 2rem auto;
+  position: relative;
+}
+
+.hangman-part {
+  position: absolute;
+  background-color: #ffffff;
+  transition: opacity 0.3s ease;
+}
+
+#gallows {
+  width: 100px;
+  height: 5px;
+  bottom: 0;
+  left: 50px;
+}
+
+#vertical-bar {
+  width: 5px;
+  height: 200px;
+  bottom: 0;
+  left: 50px;
+}
+
+#horizontal-bar {
+  width: 100px;
+  height: 5px;
+  top: 0;
+  left: 50px;
+}
+
+#rope {
+  width: 5px;
+  height: 40px;
+  top: 0;
+  right: 50px;
+}
+
+#head {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  top: 40px;
+  right: 37.5px;
+  background-color: transparent;
+  border: 5px solid #ffffff;
+}
+
+#body {
+  width: 5px;
+  height: 50px;
+  top: 70px;
+  right: 50px;
+}
+
+#left-arm, #right-arm {
+  width: 40px;
+  height: 5px;
+  top: 80px;
+}
+
+#left-arm {
+  right: 55px;
+  transform: rotate(30deg);
+}
+
+#right-arm {
+  right: 10px;
+  transform: rotate(-30deg);
+}
+
+#left-leg, #right-leg {
+  width: 40px;
+  height: 5px;
+  top: 120px;
+}
+
+#left-leg {
+  right: 55px;
+  transform: rotate(-30deg);
+}
+
+#right-leg {
+  right: 10px;
+  transform: rotate(30deg);
+}
