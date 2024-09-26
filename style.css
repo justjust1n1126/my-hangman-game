@@ -85,6 +85,14 @@ nav ul li a:hover {
   background-color: #e94560;
 }
 
+#hangman-animation {
+  width: 200px;
+  height: 200px;
+  margin: 2rem auto;
+  position: relative;
+  overflow: hidden;
+}
+
 #user-input-section {
   font-size: 1.8em;
   margin: 0.6em 0 1.2em 0;
@@ -200,72 +208,4 @@ footer p {
   color: #e94560;
 }
 
-#hangman-container {
-  width: 200px;
-  height: 250px;
-  margin: 2rem auto;
-  position: relative;
-}
-
-.hangman-part {
-  position: absolute;
-  background-color: transparent; /* Changed to transparent to ensure proper visibility when hidden */
-  border: 5px solid #ffffff; /* Added border to show when displayed */
-  transition: opacity 0.3s ease, visibility 0.3s ease; /* Added visibility for smoother hiding/showing */
-  opacity: 0; /* Set to 0 for hidden parts */
-  visibility: hidden; /* Set to hidden for better control */
-}
-
-#head {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  top: 40px;
-  right: 37.5px;
-}
-
-#body {
-  width: 5px;
-  height: 50px;
-  top: 70px;
-  right: 50px;
-}
-
-#left-arm, #right-arm {
-  width: 40px;
-  height: 5px;
-  top: 80px;
-}
-
-#left-arm {
-  right: 55px;
-  transform: rotate(30deg);
-}
-
-#right-arm {
-  right: 10px;
-  transform: rotate(-30deg);
-}
-
-#left-leg, #right-leg {
-  width: 40px;
-  height: 5px;
-  top: 120px;
-}
-
-#left-leg {
-  right: 55px;
-  transform: rotate(-30deg);
-}
-
-#right-leg {
-  right: 10px;
-  transform: rotate(30deg);
-}
-
-/* Show hangman parts when needed */
-.hangman-part.show {
-  opacity: 1; /* Change to 1 when showing */
-  visibility: visible; /* Change to visible when showing */
-}
 
