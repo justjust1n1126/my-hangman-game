@@ -6,7 +6,43 @@ const elements = {
   newGameContainer: document.getElementById("result-container"),
   newGameButton: document.getElementById("new-game-button"),
   resultText: document.getElementById("result-text"),
-  optionsButtons: document.getElementById("options-buttons")
+  optionsButtons: document.getElementById("options-buttons"),
+  hangmanContainer: document.getElementById("hangman-container")
+};
+
+const hangmanParts = [
+  "gallows",
+  "vertical-bar",
+  "horizontal-bar",
+  "rope",
+  "head",
+  "body",
+  "left-arm",
+  "right-arm",
+  "left-leg",
+  "right-leg"
+];
+
+const createHangman = () => {
+  elements.hangmanContainer.innerHTML = "";
+  hangmanParts.forEach(part => {
+    const div = document.createElement("div");
+    div.id = part;
+    div.classList.add("hangman-part");
+    div.style.opacity = "0";
+    elements.hangmanContainer.appendChild(div);
+  });
+};
+
+const updateHangman = (wrongGuesses) => {
+  for (let i = 0; i < hangmanParts.length; i++) {
+    const part = document.getElementById(hangmanParts[i]);
+    if (i <= wrongGuesses) {
+      part.style.opacity = "1";
+    } else {
+      part.style.opacity = "0";
+    }
+  }
 };
 
 // Game options
@@ -68,6 +104,8 @@ const initializer = () => {
   winCount = 0;
   count = 0;
 
+  createHangman();
+
   elements.userInputSection.innerHTML = "";
   elements.letterContainer.classList.add("hide");
   elements.newGameContainer.classList.add("hide");
@@ -87,14 +125,15 @@ const initializer = () => {
             dashes[index].innerText = char;
             winCount += 1;
             if (winCount == charArray.length) {
-              elements.resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>The word was <span>${chosenWord}</span></p>`;
+              elements.resultText.innerHTML = '<h2 class="win-msg">You Win!!</h2>';
               blocker();
             }
           }
         });
       } else {
         count += 1;
-        if (count == 6) {
+        updateHangman(count - 1);
+        if (count == 10) {
           elements.resultText.innerHTML = `<h2 class='lose-msg'>You Lose!!</h2><p>The word was <span>${chosenWord}</span></p>`;
           blocker();
         }
