@@ -78,7 +78,7 @@ nav ul li a:hover {
   color: #ffffff;
   border-radius: 0.5em;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .option-btn:hover {
@@ -103,66 +103,21 @@ nav ul li a:hover {
   top: 30px;
   left: 95px;
   animation: hangmanAnimation 4s infinite linear;
+  box-shadow: 
+    0 0 0 0 #ffffff,
+    0 20px 0 0 #ffffff,
+    -15px 35px 0 0 #ffffff,
+    15px 35px 0 0 #ffffff,
+    -15px 70px 0 0 #ffffff,
+    15px 70px 0 0 #ffffff;
 }
 
 @keyframes hangmanAnimation {
-  0% {
-      box-shadow: 
-          0 0 0 0 #ffffff,
-          0 20px 0 0 #ffffff,
-          -15px 35px 0 0 #ffffff,
-          15px 35px 0 0 #ffffff,
-          -15px 70px 0 0 #ffffff,
-          15px 70px 0 0 #ffffff;
+  0%, 100% {
+    transform: translateY(0);
   }
-  20% {
-      box-shadow: 
-          0 0 0 0 #ffffff,
-          0 20px 0 0 #ffffff,
-          -15px 35px 0 0 #ffffff,
-          15px 35px 0 0 #ffffff,
-          -15px 70px 0 0 #ffffff,
-          15px 70px 0 0 #ffffff;
-      transform: translateY(5px);
-  }
-  40% {
-      box-shadow: 
-          0 0 0 0 #ffffff,
-          0 20px 0 0 #ffffff,
-          -15px 35px 0 0 #ffffff,
-          15px 35px 0 0 #ffffff,
-          -15px 70px 0 0 #ffffff,
-          15px 70px 0 0 #ffffff;
-      transform: translateY(0px);
-  }
-  60% {
-      box-shadow: 
-          0 0 0 0 #ffffff,
-          0 20px 0 0 #ffffff,
-          -15px 35px 0 0 #ffffff,
-          15px 35px 0 0 #ffffff,
-          -15px 70px 0 0 #ffffff,
-          15px 70px 0 0 #ffffff;
-      transform: translateY(5px);
-  }
-  80% {
-      box-shadow: 
-          0 0 0 0 #ffffff,
-          0 20px 0 0 #ffffff,
-          -15px 35px 0 0 #ffffff,
-          15px 35px 0 0 #ffffff,
-          -15px 70px 0 0 #ffffff,
-          15px 70px 0 0 #ffffff;
-      transform: translateY(0px);
-  }
-  100% {
-      box-shadow: 
-          0 0 0 0 #ffffff,
-          0 20px 0 0 #ffffff,
-          -15px 35px 0 0 #ffffff,
-          15px 35px 0 0 #ffffff,
-          -15px 70px 0 0 #ffffff,
-          15px 70px 0 0 #ffffff;
+  20%, 60% {
+    transform: translateY(5px);
   }
 }
 
@@ -173,7 +128,7 @@ nav ul li a:hover {
 
 .letter-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(2.4em, 1fr));
+  grid-template-columns: repeat(auto-fit, 2.4em);
   gap: 0.6em;
   margin-top: 2em;
 }
@@ -186,7 +141,7 @@ nav ul li a:hover {
   color: #ffffff;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .letter-container button:hover {
@@ -206,25 +161,26 @@ footer {
 }
 
 footer p {
-  margin: 0.5rem 0;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
   .nav-content {
-      flex-direction: column;
-      gap: 1rem;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   nav ul {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   nav ul li {
-      margin: 0.5rem 0;
+    margin: 0.5rem 0;
   }
 
   #options-buttons {
-      flex-direction: column;
+    flex-direction: column;
   }
 }
+
