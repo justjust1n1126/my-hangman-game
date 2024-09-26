@@ -85,42 +85,6 @@ nav ul li a:hover {
   background-color: #e94560;
 }
 
-#hangman-animation {
-  width: 200px;
-  height: 200px;
-  margin: 2rem auto;
-  position: relative;
-  overflow: hidden;
-}
-
-#hangman-animation::before {
-  content: '';
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  top: 30px;
-  left: 95px;
-  animation: hangmanAnimation 4s infinite linear;
-  box-shadow: 
-    0 0 0 0 #ffffff,
-    0 20px 0 0 #ffffff,
-    -15px 35px 0 0 #ffffff,
-    15px 35px 0 0 #ffffff,
-    -15px 70px 0 0 #ffffff,
-    15px 70px 0 0 #ffffff;
-}
-
-@keyframes hangmanAnimation {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  20%, 60% {
-    transform: translateY(5px);
-  }
-}
-
 #user-input-section {
   font-size: 1.8em;
   margin: 0.6em 0 1.2em 0;
@@ -245,36 +209,11 @@ footer p {
 
 .hangman-part {
   position: absolute;
-  background-color: #ffffff;
-  transition: opacity 0.3s ease;
-}
-
-#gallows {
-  width: 100px;
-  height: 5px;
-  bottom: 0;
-  left: 50px;
-}
-
-#vertical-bar {
-  width: 5px;
-  height: 200px;
-  bottom: 0;
-  left: 50px;
-}
-
-#horizontal-bar {
-  width: 100px;
-  height: 5px;
-  top: 0;
-  left: 50px;
-}
-
-#rope {
-  width: 5px;
-  height: 40px;
-  top: 0;
-  right: 50px;
+  background-color: transparent; /* Changed to transparent to ensure proper visibility when hidden */
+  border: 5px solid #ffffff; /* Added border to show when displayed */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Added visibility for smoother hiding/showing */
+  opacity: 0; /* Set to 0 for hidden parts */
+  visibility: hidden; /* Set to hidden for better control */
 }
 
 #head {
@@ -283,8 +222,6 @@ footer p {
   border-radius: 50%;
   top: 40px;
   right: 37.5px;
-  background-color: transparent;
-  border: 5px solid #ffffff;
 }
 
 #body {
@@ -325,3 +262,10 @@ footer p {
   right: 10px;
   transform: rotate(30deg);
 }
+
+/* Show hangman parts when needed */
+.hangman-part.show {
+  opacity: 1; /* Change to 1 when showing */
+  visibility: visible; /* Change to visible when showing */
+}
+
