@@ -7,41 +7,17 @@ const elements = {
   newGameButton: document.getElementById("new-game-button"),
   resultText: document.getElementById("result-text"),
   optionsButtons: document.getElementById("options-buttons"),
-  hangmanContainer: document.getElementById("hangman-container")
-};
-
-const hangmanParts = [
-  "gallows",
-  "vertical-bar",
-  "horizontal-bar",
-  "rope",
-  "head",
-  "body",
-  "left-arm",
-  "right-arm",
-  "left-leg",
-  "right-leg"
-];
-
-const createHangman = () => {
-  elements.hangmanContainer.innerHTML = "";
-  hangmanParts.forEach(part => {
-    const div = document.createElement("div");
-    div.id = part;
-    div.classList.add("hangman-part");
-    div.style.opacity = "0";
-    elements.hangmanContainer.appendChild(div);
-  });
-};
-
-const updateHangman = (wrongGuesses) => {
-  for (let i = 0; i < hangmanParts.length; i++) {
-    const part = document.getElementById(hangmanParts[i]);
-    if (i <= wrongGuesses) {
-      part.style.opacity = "1";
-    } else {
-      part.style.opacity = "0";
-    }
+  hangmanParts: {
+    head: document.getElementById("head"),
+    body: document.getElementById("body"),
+    leftArm: document.getElementById("left-arm"),
+    rightArm: document.getElementById("right-arm"),
+    leftLeg: document.getElementById("left-leg"),
+    rightLeg: document.getElementById("right-leg"),
+    gallows: document.getElementById("gallows"),
+    verticalBar: document.getElementById("vertical-bar"),
+    horizontalBar: document.getElementById("horizontal-bar"),
+    rope: document.getElementById("rope"),
   }
 };
 
@@ -68,6 +44,7 @@ let winCount = 0;
 let count = 0;
 let chosenWord = "";
 
+// Function to display options for the game
 const displayOptions = () => {
   elements.optionsButtons.innerHTML = "";
   Object.keys(options).forEach((option) => {
@@ -81,6 +58,7 @@ const displayOptions = () => {
   });
 };
 
+// Function to disable letter buttons and show the new game option
 const blocker = () => {
   let letterButtons = document.querySelectorAll(".letters");
   letterButtons.forEach((button) => {
@@ -89,6 +67,7 @@ const blocker = () => {
   elements.newGameContainer.classList.remove("hide");
 };
 
+// Function to generate a random word based on the selected category
 const generateWord = (optionValue) => {
   elements.letterContainer.classList.remove("hide");
   elements.userInputSection.innerText = "";
@@ -100,17 +79,20 @@ const generateWord = (optionValue) => {
   elements.userInputSection.innerHTML = displayItem;
 };
 
+// Function to initialize or reset the game
 const initializer = () => {
   winCount = 0;
   count = 0;
-
-  createHangman();
 
   elements.userInputSection.innerHTML = "";
   elements.letterContainer.classList.add("hide");
   elements.newGameContainer.classList.add("hide");
   elements.letterContainer.innerHTML = "";
 
+  // Reset hangman parts visibility
+  resetHangman();
+
+  // Create buttons for letters A-Z
   for (let i = 65; i < 91; i++) {
     let button = document.createElement("button");
     button.classList.add("letters");
@@ -124,16 +106,19 @@ const initializer = () => {
           if (char === button.innerText) {
             dashes[index].innerText = char;
             winCount += 1;
+            // Check for win condition
             if (winCount == charArray.length) {
-              elements.resultText.innerHTML = '<h2 class="win-msg">You Win!!</h2>';
+              elements.resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>The word was <span>${chosenWord}</span></p>`;
               blocker();
             }
           }
         });
       } else {
         count += 1;
-        updateHangman(count - 1);
-        if (count == 10) {
+        // Update hangman parts
+        updateHangman(count);
+        // Check for lose condition
+        if (count == 6) {
           elements.resultText.innerHTML = `<h2 class='lose-msg'>You Lose!!</h2><p>The word was <span>${chosenWord}</span></p>`;
           blocker();
         }
@@ -146,5 +131,21 @@ const initializer = () => {
   displayOptions();
 };
 
+// Function to reset hangman parts
+const resetHangman = () => {
+  Object.keys(elements.hangmanParts).forEach(part => {
+    elements.hangmanParts[part].style.display = "none"; // Hide all parts
+  });
+};
+
+// Function to update hangman parts based on wrong guesses
+const updateHangman = (count) => {
+  const hangmanKeys = Object.keys(elements.hangmanParts);
+  if (count > 0 && count <= hangmanKeys.length) {
+    elements.hangmanParts[hangmanKeys[count - 1]].style.display = "block"; // Show part corresponding to the current count
+  }
+};
+
+// Event listener for the new game button
 elements.newGameButton.addEventListener("click", initializer);
 window.onload = initializer;
