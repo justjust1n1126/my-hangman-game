@@ -1,120 +1,230 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #1a1a2e;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  background-color: #16213e;
+  padding: 1rem 0;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h1 {
+  font-size: 1.5rem;
+  color: #e94560;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin-left: 2rem;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #e94560;
+}
+
+.container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+#options-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#options-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.option-btn {
+  padding: 0.8em 1.5em;
+  border: none;
+  background-color: #0f3460;
+  color: #ffffff;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.option-btn:hover {
+  background-color: #e94560;
+}
+
+#hangman-animation {
+  width: 200px;
+  height: 200px;
+  margin: 2rem auto;
+  position: relative;
+  overflow: hidden;
+}
+
+#hangman-animation::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  top: 30px;
+  left: 95px;
+  animation: hangmanAnimation 4s infinite linear;
+}
+
+@keyframes hangmanAnimation {
+  0% {
+      box-shadow: 
+          0 0 0 0 #ffffff,
+          0 20px 0 0 #ffffff,
+          -15px 35px 0 0 #ffffff,
+          15px 35px 0 0 #ffffff,
+          -15px 70px 0 0 #ffffff,
+          15px 70px 0 0 #ffffff;
   }
-  body {
-    background-color: #8FBABC;
+  20% {
+      box-shadow: 
+          0 0 0 0 #ffffff,
+          0 20px 0 0 #ffffff,
+          -15px 35px 0 0 #ffffff,
+          15px 35px 0 0 #ffffff,
+          -15px 70px 0 0 #ffffff,
+          15px 70px 0 0 #ffffff;
+      transform: translateY(5px);
   }
-  .container {
-    font-size: 16px;
-    background-color: #cf9c9c;
-    width: 90vw;
-    max-width: 34em;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    padding: 3em;
-    border-radius: 0.6em;
-    box-shadow: 0 1.2em 2.4em rgba(111, 85, 0, 0.25);
+  40% {
+      box-shadow: 
+          0 0 0 0 #ffffff,
+          0 20px 0 0 #ffffff,
+          -15px 35px 0 0 #ffffff,
+          15px 35px 0 0 #ffffff,
+          -15px 70px 0 0 #ffffff,
+          15px 70px 0 0 #ffffff;
+      transform: translateY(0px);
   }
-  #options-container {
-    text-align: center;
+  60% {
+      box-shadow: 
+          0 0 0 0 #ffffff,
+          0 20px 0 0 #ffffff,
+          -15px 35px 0 0 #ffffff,
+          15px 35px 0 0 #ffffff,
+          -15px 70px 0 0 #ffffff,
+          15px 70px 0 0 #ffffff;
+      transform: translateY(5px);
   }
-  #options-container div {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 1.2em 0 2.4em 0;
+  80% {
+      box-shadow: 
+          0 0 0 0 #ffffff,
+          0 20px 0 0 #ffffff,
+          -15px 35px 0 0 #ffffff,
+          15px 35px 0 0 #ffffff,
+          -15px 70px 0 0 #ffffff,
+          15px 70px 0 0 #ffffff;
+      transform: translateY(0px);
   }
-  #options-container button {
-    padding: 0.6em 1.2em;
-    border: 3px solid #000000;
-    background-color: #ffffff;
-    color: #000000;
-    border-radius: 0.3em;
-    text-transform: capitalize;
-    cursor: pointer;
+  100% {
+      box-shadow: 
+          0 0 0 0 #ffffff,
+          0 20px 0 0 #ffffff,
+          -15px 35px 0 0 #ffffff,
+          15px 35px 0 0 #ffffff,
+          -15px 70px 0 0 #ffffff,
+          15px 70px 0 0 #ffffff;
   }
-  #options-container button:disabled {
-    border: 3px solid #808080;
-    color: #808080;
-    background-color: #efefef;
+}
+
+#user-input-section {
+  font-size: 1.8em;
+  margin: 0.6em 0 1.2em 0;
+}
+
+.letter-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(2.4em, 1fr));
+  gap: 0.6em;
+  margin-top: 2em;
+}
+
+.letter-container button {
+  height: 2.4em;
+  width: 2.4em;
+  border-radius: 0.3em;
+  background-color: #0f3460;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.letter-container button:hover {
+  background-color: #e94560;
+}
+
+.hide {
+  display: none;
+}
+
+footer {
+  background-color: #16213e;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .nav-content {
+      flex-direction: column;
+      gap: 1rem;
   }
-  #options-container button.active {
-    background-color: #19d332;
-    border: 3px solid #d82626;
-    color: #fff;
+
+  nav ul {
+      flex-direction: column;
+      align-items: center;
   }
-  .letter-container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.6em;
+
+  nav ul li {
+      margin: 0.5rem 0;
   }
-  #letter-container button {
-    height: 2.4em;
-    width: 2.4em;
-    border-radius: 0.3em;
-    background-color: #ffffff;
-    cursor: pointer;
+
+  #options-buttons {
+      flex-direction: column;
   }
-  .new-game-popup {
-    background-color: #ffffff;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 0.6em;
-  }
-  
-  #user-input-section {
-    display: flex;
-    justify-content: center;
-    font-size: 1.8em;
-    margin: 0.6em 0 1.2em 0;
-  }
-  canvas {
-    display: block;
-    margin: auto;
-    border: 10px solid #8c52ff;
-    border-radius: 10px;
-  }
-  .hide {
-    display: none;
-  }
-  #result-text h2 {
-    font-size: 1.8em;
-    text-align: center;
-  }
-  #result-text p {
-    font-size: 1.25em;
-    margin: 1em 0 2em 0;
-  }
-  #result-text span {
-    font-weight: 600;
-  }
-  #new-game-button {
-    font-size: 1.25em;
-    padding: 0.5em 1em;
-    background-color: #8c52ff;
-    border: 3px solid #000000;
-    color: #fff;
-    border-radius: 0.2em;
-    cursor: pointer;
-  }
-  .win-msg {
-    color: #39d78d;
-  }
-  .lose-msg {
-    color: #fe5152;
-  }
-  
+}
