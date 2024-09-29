@@ -12,7 +12,7 @@ const elements = {
 const options = {
   fruits: [
     "Apple", "Blueberry", "Mandarin", "Pineapple", "Pomegranate", "Watermelon",
-    "Dragonfruit", "Carambola", "Passionfruit", "Limoncillo", "Bananas",
+    "Dragonfruit", "Carambola", "Passionfruit", "Bananas",
     "Lemons", "Lychee", "Kiwi", "Grapes"
   ],
   animals: [
