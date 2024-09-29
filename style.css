@@ -93,6 +93,34 @@ nav ul li a:hover {
   overflow: hidden;
 }
 
+#hangman-animation::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  top: 30px;
+  left: 95px;
+  animation: hangmanAnimation 4s infinite linear;
+  box-shadow: 
+    0 0 0 0 #ffffff,
+    0 20px 0 0 #ffffff,
+    -15px 35px 0 0 #ffffff,
+    15px 35px 0 0 #ffffff,
+    -15px 70px 0 0 #ffffff,
+    15px 70px 0 0 #ffffff;
+}
+
+@keyframes hangmanAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  20%, 60% {
+    transform: translateY(5px);
+  }
+}
+
 #user-input-section {
   font-size: 1.8em;
   margin: 0.6em 0 1.2em 0;
@@ -156,6 +184,8 @@ footer p {
   }
 }
 
+/* ... (keep the existing styles, and add or modify the following) ... */
+
 #result-container {
   background-color: rgba(15, 52, 96, 0.95);
   border-radius: 10px;
@@ -206,6 +236,96 @@ footer p {
 
 .lose-msg {
   color: #e94560;
+}
+
+#hangman-container {
+  width: 200px;
+  height: 250px;
+  margin: 2rem auto;
+  position: relative;
+}
+
+.hangman-part {
+  position: absolute;
+  background-color: #ffffff;
+  transition: opacity 0.3s ease;
+}
+
+#gallows {
+  width: 100px;
+  height: 5px;
+  bottom: 0;
+  left: 50px;
+}
+
+#vertical-bar {
+  width: 5px;
+  height: 200px;
+  bottom: 0;
+  left: 50px;
+}
+
+#horizontal-bar {
+  width: 100px;
+  height: 5px;
+  top: 0;
+  left: 50px;
+}
+
+#rope {
+  width: 5px;
+  height: 40px;
+  top: 0;
+  right: 50px;
+}
+
+#head {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  top: 40px;
+  right: 37.5px;
+  background-color: transparent;
+  border: 5px solid #ffffff;
+}
+
+#body {
+  width: 5px;
+  height: 50px;
+  top: 70px;
+  right: 50px;
+}
+
+#left-arm, #right-arm {
+  width: 40px;
+  height: 5px;
+  top: 80px;
+}
+
+#left-arm {
+  right: 55px;
+  transform: rotate(30deg);
+}
+
+#right-arm {
+  right: 10px;
+  transform: rotate(-30deg);
+}
+
+#left-leg, #right-leg {
+  width: 40px;
+  height: 5px;
+  top: 120px;
+}
+
+#left-leg {
+  right: 55px;
+  transform: rotate(-30deg);
+}
+
+#right-leg {
+  right: 10px;
+  transform: rotate(30deg);
 }
 
 
