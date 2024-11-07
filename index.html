@@ -10,7 +10,7 @@
 <body>
     <nav>
         <div class="nav-content">
-            <h1>Hangman</h1>
+            <h1>Hangman Game</h1>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -19,28 +19,37 @@
         </div>
     </nav>
 
+    <header id="home">
+        <h2>Welcome to the Hangman Game</h2>
+    </header>
+
+    <section id="about">
+        <h2>About the Game</h2>
+        <p>Hangman is a classic word guessing game. Select a category and start guessing the letters to reveal the hidden word.</p>
+    </section>
+
     <main id="game" class="container">
-        <section id="options-container">
-            <h2>Please Select An Option</h2>
-            <div id="options-buttons"></div>
-                <button class="option-btn">Fruits</button>
-                <button class="option-btn">Animals</button>
-                <button class="option-btn">Countries</button>
+        <section id="category-selection">
+            <h2>Select a Category</h2>
+            <div id="category-buttons">
+                <button class="category-btn" data-category="fruits">Fruits</button>
+                <button class="category-btn" data-category="animals">Animals</button>
+                <button class="category-btn" data-category="countries">Countries</button>
             </div>
         </section>
-        
-        <section id="game-area">
-            <div id="hangman-animation"></div>
-            <div id="user-input-section"></div>
-            <div id="letter-container" class="letter-container hide"></div>
+
+        <section id="game-area" class="hide">
+            <div id="hangman-container"></div>
+            <div id="word-container"></div>
+            <div id="letter-buttons" class="letter-buttons"></div>
         </section>
-        
-        <section id="result-container" class="new-game-popup hide">
-            <div id="result-text"></div>
+
+        <section id="result" class="hide">
+            <div id="result-message"></div>
             <button id="new-game-button">New Game</button>
         </section>
     </main>
-    
+
     <footer>
         <p>Created by: Justin Tapia</p>
         <p>&copy; 2024 Hangman Game. All rights reserved.</p>
