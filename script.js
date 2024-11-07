@@ -1,4 +1,3 @@
-
 const elements = {
   letterContainer: document.getElementById("letter-container"),
   optionsContainer: document.getElementById("options-container"),
@@ -106,5 +105,10 @@ const initializer = () => {
   displayOptions();
 };
 
-elements.newGameButton.addEventListener("click", initializer);
-window.onload = initializer;
+const initializeGame = () => {
+  displayOptions();
+  initializer();
+};
+
+elements.newGameButton.addEventListener("click", initializeGame);
+window.onload = initializeGame;
