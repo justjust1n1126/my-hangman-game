@@ -1,51 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Hangman Game</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav>
-        <div class="nav-content">
-            <h1>Hangman</h1>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#game">Game</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <main id="game" class="container">
-        <section id="options-container">
-            <h2>Please Select An Option</h2>
-            <div id="options-buttons"></div>
-                <button class="option-btn">Fruits</button>
-                <button class="option-btn">Animals</button>
-                <button class="option-btn">Countries</button>
-            </div>
-        </section>
-        
-        <section id="game-area">
-            <div id="hangman-animation"></div>
-            <div id="user-input-section"></div>
-            <div id="letter-container" class="letter-container hide"></div>
-        </section>
-        
-        <section id="result-container" class="new-game-popup hide">
-            <div id="result-text"></div>
-            <button id="new-game-button">New Game</button>
-        </section>
-    </main>
-    
-    <footer>
-        <p>Created by: Justin Tapia</p>
-        <p>&copy; 2024 Hangman Game. All rights reserved.</p>
-    </footer>
-
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Animate.css for smooth transitions -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div id="options-container" class="animate__animated animate__fadeIn"></div>
+      <div id="letter-container" class="letter-container hide"></div>
+      <div id="user-input-section"></div>
+      <canvas id="canvas"></canvas>
+      <div id="new-game-container" class="new-game-popup hide">
+        <div id="result-text"></div>
+        <button id="new-game-button" class="animate__animated animate__bounceIn">New Game</button>
+      </div>
+    </div>
+      <footer>
+            <p>Created by: Justin Tapia</p>
+        <p>&copy;Hangman Game.</p>
+      </footer>
+    <!-- Script -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
