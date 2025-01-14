@@ -6,6 +6,64 @@
     <title>Modern Hangman Game</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            width: 100%;
+        }
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-content ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-content ul li {
+            display: inline;
+        }
+        .nav-content ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        header, section, footer {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .category-btn, #new-game-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .category-btn:hover, #new-game-button:hover {
+            background-color: #555;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -52,9 +110,29 @@
 
     <footer>
         <p>Created by: Justin Tapia</p>
-        <p>&copy; 2024 Hangman Game. All rights reserved.</p>
+        <p>&copy; Hangman Game </p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const gameArea = document.getElementById('game-area');
+            const categorySelection = document.getElementById('category-selection');
+            const resultSection = document.getElementById('result');
+            const newGameButton = document.getElementById('new-game-button');
+
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    categorySelection.classList.add('hide');
+                    gameArea.classList.remove('hide');
+                });
+            });
+
+            newGameButton.addEventListener('click', () => {
+                resultSection.classList.add('hide');
+                gameArea.classList.remove('hide');
+            });
+        });
+    </script>
 </body>
 </html>
