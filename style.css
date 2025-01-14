@@ -1,116 +1,120 @@
-/* General Styling */
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-.container {
-  text-align: center;
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 400px;
-}
-
-button {
-  padding: 10px 20px;
-  margin: 5px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-button:disabled {
-  background-color: #d3d3d3;
-}
-
-.hide {
-  display: none;
-}
-
-/* Option Buttons Styling */
-#options-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Letter Buttons Styling */
-.letters {
-  font-size: 22px;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 50%;
-  background-color: #f4f4f4;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-.letters:hover {
-  background-color: #ffcc00;
-}
-
-/* Display Word Styling */
-#user-input-section {
-  font-size: 30px;
-  margin: 20px 0;
-}
-
-.dashes {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  border-bottom: 2px solid black;
-  margin: 0 5px;
-}
-
-/* Result Styling */
-.new-game-popup {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-}
-
-.new-game-popup button {
-  background-color: #4CAF50;
-  color: white;
-  border-radius: 5px;
-}
-
-.new-game-popup h2 {
-  margin: 0;
-  padding: 10px;
-  font-size: 24px;
-}
-
-.win-msg {
-  color: green;
-}
-
-.lose-msg {
-  color: red;
-}
-
-button.animate__animated {
-  animation-duration: 1s;
-}
-
-button.animate__fadeIn {
-  animation-name: fadeIn;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
   }
-  to {
-    opacity: 1;
+  body {
+    background-color: #b41818af;
   }
-}
+  .container {
+    font-size: 16px;
+    background-color: #cf9c9c;
+    width: 90vw;
+    max-width: 34em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 3em;
+    border-radius: 0.6em;
+    box-shadow: 0 1.2em 2.4em rgba(111, 85, 0, 0.25);
+  }
+  #options-container {
+    text-align: center;
+  }
+  #options-container div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 1.2em 0 2.4em 0;
+  }
+  #options-container button {
+    padding: 0.6em 1.2em;
+    border: 3px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 0.3em;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+  #options-container button:disabled {
+    border: 3px solid #808080;
+    color: #808080;
+    background-color: #efefef;
+  }
+  #options-container button.active {
+    background-color: #19d332;
+    border: 3px solid #d82626;
+    color: #fff;
+  }
+  .letter-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6em;
+  }
+  #letter-container button {
+    height: 2.4em;
+    width: 2.4em;
+    border-radius: 0.3em;
+    background-color: #ffffff;
+    cursor: pointer;
+  }
+  .new-game-popup {
+    background-color: #ffffff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0.6em;
+  }
+  
+  #user-input-section {
+    display: flex;
+    justify-content: center;
+    font-size: 1.8em;
+    margin: 0.6em 0 1.2em 0;
+  }
+  canvas {
+    display: block;
+    margin: auto;
+    border: 10px solid #8c52ff;
+    border-radius: 10px;
+  }
+  .hide {
+    display: none;
+  }
+  #result-text h2 {
+    font-size: 1.8em;
+    text-align: center;
+  }
+  #result-text p {
+    font-size: 1.25em;
+    margin: 1em 0 2em 0;
+  }
+  #result-text span {
+    font-weight: 600;
+  }
+  #new-game-button {
+    font-size: 1.25em;
+    padding: 0.5em 1em;
+    background-color: #8c52ff;
+    border: 3px solid #000000;
+    color: #fff;
+    border-radius: 0.2em;
+    cursor: pointer;
+  }
+  .win-msg {
+    color: #39d78d;
+  }
+  .lose-msg {
+    color: #fe5152;
+  }
+  
