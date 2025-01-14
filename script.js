@@ -12,11 +12,10 @@ const options = {
   fruits: [
     "Apple", "Banana", "Orange", "Grapes", "Mango", "Pineapple", "Strawberry",
     "Peach", "Cherry", "Watermelon", "Lemon", "Kiwi", "Papaya", "Avocado", 
-    "Coconut", "Plum", "Raspberry", "Blueberry", "Cantaloupe", "Pomegranate", 
-    "Blackberry", "Apricot", "Tangerine", "Dragonfruit", "Guava", "Lychee", 
+    "Coconut", "Raspberry", "Blueberry", "Cantaloupe", "Pomegranate", 
+    "Blackberry", "Tangerine", "Dragonfruit", "Guava", "Lychee", 
     "Pear", "Fig", "Cranberry", "Jackfruit", "Mulberry", "Nectarine", 
-    "Passionfruit", "Tamarind", "Persimmon", "Starfruit", "Gooseberry", 
-    "Clementine", "Soursop", "Longan", "Cherries"
+    "Passionfruit", "Cherries"
   ],
   animals: [
     "Dog", "Cat", "Elephant", "Tiger", "Lion", "Giraffe", "Koala", "Monkey",
@@ -39,28 +38,26 @@ const options = {
     "Inception", "Avatar", "Titanic", "TheLionKing", "Frozen", "TheAvengers", 
     "JurassicPark", "HarryPotter", "StarWars", "TheDarkKnight", "PulpFiction",
     "ForrestGump", "TheGodfather", "TheMatrix", "Shrek", "ToyStory", "FindingNemo", 
-    "Gladiator", "TheShawshankRedemption", "TheSocialNetwork", "LaLaLand", 
-    "BlackPanther", "ThePursuitOfHappyness", "TheWolfOfWallStreet", "Deadpool", 
-    "GuardiansOfTheGalaxy", "PiratesOfTheCaribbean", "Jaws", "Rocky", "Memento", 
-    "TheSilenceOfTheLambs", "TheIncredibles", "Avatar", "Coco", "TheLionKing", 
-    "BeautyAndTheBeast", "MadMax", "TheHungerGames", "Borat", "TheGodfather"
+    "Gladiator",  "BlackPanther" ,"Deadpool", "GuardiansOfTheGalaxy", "PiratesOfTheCaribbean", 
+    "Jaws", "Rocky", "TheSilenceOfTheLambs", "TheIncredibles", "Avatar", 
+    "Coco", "TheLionKing", "BeautyAndTheBeast", "MadMax", "TheHungerGames", "TheGodfather"
   ],
   sports: [
     "Football", "Basketball", "Soccer", "Tennis", "Baseball", "Hockey", "Golf",
     "Swimming", "Cycling", "Running", "Boxing", "Wrestling", "Cricket", "Rugby",
     "Badminton", "Volleyball", "TableTennis", "Handball", "Gymnastics", "Fencing",
     "Karate", "Judo", "MMA", "Surfing", "Skiing", "Snowboarding", "Equestrian",
-    "Archery", "Lacrosse", "Softball", "FieldHockey", "TrackAndField", "Weightlifting",
+    "Archery", "Lacrosse", "Softball", "Hockey", "Track", "Weightlifting",
     "Shooting", "HorseRacing", "Curling", "Motorsports", "Swimming", "TugOfWar",
-    "UltimateFrisbee", "Cycling"
+    "Frisbee", "Cycling"
   ],
   landmarks: [
     "EiffelTower", "GreatWallOfChina", "TajMahal", "PyramidsOfGiza", "StatueOfLiberty",
     "SydneyOperaHouse", "MachuPicchu", "BigBen", "MountFuji", "Colosseum", 
-    "ChristTheRedeemer", "MountRushmore", "Stonehenge", "NeuschwansteinCastle",
-    "Stonehenge", "GrandCanyon", "GreatBarrierReef", "MountEverest", "GoldenGateBridge",
+    "ChristTheRedeemer", "MountRushmore", "Stonehenge", "GrandCanyon", "GreatBarrierReef", 
+    "MountEverest", "GoldenGateBridge",
     "Acropolis", "SagradaFamilia", "RedSquare", "BurjKhalifa", "Petra", "MountVesuvius",
-    "Alhambra", "ChichenItza", "PisaTower", "MachuPicchu", "StPeter'sBasilica", 
+    "Alhambra", "ChichenItza", "PisaTower", "MachuPicchu",
     "AngkorWat", "GrandPalace", "MountKilimanjiro", "Fallingwater", "FountainOfTrev",
     "WhiteHouse", "MontSaintMichel", "BlueLagoon", "MountEtna"
   ],
@@ -79,13 +76,13 @@ const options = {
     "BradPitt", "GeorgeClooney", "Adele", "MileyCyrus", "EmmaStone", "JohnnyDepp", 
     "DwayneJohnson", "SelenaGomez", "KimKardashian", "ZaynMalik", "ChrisHemsworth", 
     "DemiLovato", "Shakira", "LadyGaga", "JenniferAniston", "HughJackman", "GigiHadid", 
-    "EllenDeGeneres", "KristenStewart", "ScarlettJohansson", "ZacEfron", "DakotaJohnson", 
+    "EllenDeGeneres", "KristenStewart", "ScarlettJohansson", "ZacEfron", 
     "MatthewMcConaughey", "RyanReynolds", "TomCruise", "SandraBullock", "KeanuReeves", 
-    "CharlizeTheron", "JLo", "KendallJenner", "MarilynMonroe"
+    "CharlizeTheron", "KendallJenner", "MarilynMonroe"
   ],
   tvShows: [
     "Friends", "TheOffice", "BreakingBad", "GameOfThrones", "StrangerThings",
-    "TheSimpsons", "TheBigBangTheory", "Narcos", "Sherlock", "GreyAnatomy",
+    "TheSimpsons", "TheBigBangTheory", "Narcos", "Sherlock", "GreysAnatomy",
     "HowIMetYourMother", "ModernFamily", "MoneyHeist", "TheWalkingDead", "Fargo",
     "PeakyBlinders", "TheCrown", "TheMandolorian", "Bridgerton", "TheWestWing", 
     "NarcosMexico", "TheUmbrellaAcademy", "TheChillingAdventuresOfSabrina", "Dark", 
