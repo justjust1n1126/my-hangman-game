@@ -1,129 +1,244 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-  // Your existing code will be inside this event listener
-  const elements = {
-    letterContainer: document.getElementById("letter-container"),
-    optionsContainer: document.getElementById("options-container"),
-    userInputSection: document.getElementById("user-input-section"),
-    newGameContainer: document.getElementById("new-game-container"),
-    newGameButton: document.getElementById("new-game-button"),
-    resultText: document.getElementById("result-text"),
-    optionsButtons: document.getElementById("options-buttons")
-  };
+//Initial References
+const letterContainer = document.getElementById("letter-container");
+const optionsContainer = document.getElementById("options-container");
+const userInputSection = document.getElementById("user-input-section");
+const newGameContainer = document.getElementById("new-game-container");
+const newGameButton = document.getElementById("new-game-button");
+const canvas = document.getElementById("canvas");
+const resultText = document.getElementById("result-text");
 
-  const options = {
-    fruits: [
-      "Apple", "Banana", "Orange", "Grapes", "Mango", "Pineapple", "Strawberry",
-      "Peach", "Cherry", "Watermelon", "Lemon", "Kiwi", "Papaya", "Avocado", 
-      "Coconut", "Plum", "Raspberry", "Blueberry", "Cantaloupe", "Pomegranate", 
-      "Blackberry", "Apricot", "Tangerine", "Dragonfruit", "Guava", "Lychee", 
-      "Pear", "Fig", "Cranberry", "Jackfruit", "Mulberry", "Nectarine", 
-      "Passionfruit", "Tamarind", "Persimmon", "Starfruit", "Gooseberry", 
-      "Clementine", "Soursop", "Longan", "Cherries"
-    ],
-    animals: [
-      "Dog", "Cat", "Elephant", "Tiger", "Lion", "Giraffe", "Koala", "Monkey",
-      "Penguin", "Bear", "Kangaroo", "Horse", "Rabbit", "Fish", "Duck", "Squirrel", 
-      "Horse", "Cow", "Sheep", "Panda", "Cheetah", "Wolf", "Fox", "Snake", 
-      "Alligator", "Bat", "Eagle", "Parrot", "Zebra", "Turtle", "Llama", 
-      "Camel", "Bison", "Otter", "Hippopotamus", "Whale", "Gorilla", 
-      "Rhinoceros", "Jaguar", "Owl", "Mole", "Scorpion", "Frog"
-    ],
-    countries: [
-      "UnitedStates", "Canada", "Mexico", "Brazil", "India", "China", "Russia",
-      "Australia", "France", "Germany", "Italy", "UnitedKingdom", "Japan", "Spain",
-      "Argentina", "SouthKorea", "SouthAfrica", "Egypt", "Italy", "SouthAmerica",
-      "Turkey", "Greece", "Norway", "Denmark", "Sweden", "Finland", "Ireland", 
-      "Switzerland", "Portugal", "Netherlands", "Belgium", "Poland", "NewZealand", 
-      "SouthKorea", "Indonesia", "Thailand", "Vietnam", "Philippines", "Nigeria", 
-      "Kenya", "Chile", "Colombia", "Peru", "Chile"
-    ]
-  };
+//Options values for buttons
+let options = {
+  fruits: [
+    "Apple", "Banana", "Orange", "Strawberry", "Grapes", "Watermelon", "Mango", "Pineapple", "Kiwi", "Avocado",
+    "Peach", "Plum", "Cherry", "Blueberry", "Raspberry", "Blackberry", "Lemon", "Lime", "Pomegranate", "Coconut",
+    "Grapefruit", "Cantaloupe", "Honeydew", "Apricot", "Fig", "Papaya", "Dragonfruit", "Passionfruit", "Mandarin", "Nectarine"
+],
 
-  let winCount = 0;
-  let count = 0;
-  let chosenWord = "";
+animals: [
+    "Lion", "Tiger", "Elephant", "Giraffe", "Zebra", "Kangaroo", "Panda", "Koala", "Monkey", "Gorilla",
+    "Dog", "Cat", "Horse", "Dolphin", "Whale", "Penguin", "Turtle", "Butterfly", "Eagle", "Owl",
+    "Wolf", "Fox", "Bear", "Cheetah", "Leopard", "Puma", "Raccoon", "Penguin", "Sloth", "Ostrich",
+    "Polar Bear", "Hedgehog", "Peacock", "Lynx", "Red Panda", "Arctic Fox", "Chameleon", "Meerkat", "Squirrel", "Red Fox"
+],
 
-  const displayOptions = () => {
-    elements.optionsButtons.innerHTML = "";
-    Object.keys(options).forEach((option) => {
-      const button = document.createElement("button");
-      button.innerText = option;
-      button.classList.add("option-btn");
-      button.addEventListener("click", () => {
-        generateWord(option);
-      });
-      elements.optionsButtons.appendChild(button);
-    });
-  };
+countries: [
+    "UnitedStates", "China", "India", "Brazil", "Indonesia", "Pakistan", "Nigeria", "Bangladesh", "Russia", "Mexico",
+    "Japan", "Ethiopia", "Philippines", "Egypt", "Vietnam", "DRCongo", "Turkey", "Iran", "Germany", "Thailand",
+    "UnitedKingdom", "France", "Italy", "SouthAfrica", "Tanzania", "Kenya", "Argentina", "SouthKorea", "Colombia", "Algeria",
+    "Uganda", "Sudan", "Iraq", "Poland", "Canada", "Morocco", "Afghanistan", "Saudi Arabia", "Peru", "Venezuela",
+    "Malaysia", "Uzbekistan", "Angola", "Mozambique", "Ghana", "Yemen", "Nepal", "Venezuela", "Cameroon", "IvoryCoast",
+    "NorthKorea", "Netherlands", "Belgium", "Greece", "Portugal", "CzechRepublic", "Sweden", "Hungary", "Switzerland", "Austria"
+]
 
-  const blocker = () => {
-    let letterButtons = document.querySelectorAll(".letters");
-    letterButtons.forEach((button) => {
+};
+
+//count
+let winCount = 0;
+let count = 0;
+
+let chosenWord = "";
+
+//Display option buttons
+const displayOptions = () => {
+  optionsContainer.innerHTML += `<h3>Please Select An Option</h3>`;
+  let buttonCon = document.createElement("div");
+  for (let value in options) {
+    buttonCon.innerHTML += `<button class="options" onclick="generateWord('${value}')">${value}</button>`;
+  }
+  optionsContainer.appendChild(buttonCon);
+};
+
+//Block all the Buttons
+const blocker = () => {
+  let optionsButtons = document.querySelectorAll(".options");
+  let letterButtons = document.querySelectorAll(".letters");
+  //disable all options
+  optionsButtons.forEach((button) => {
+    button.disabled = true;
+  });
+
+  //disable all letters
+  letterButtons.forEach((button) => {
+    button.disabled.true;
+  });
+  newGameContainer.classList.remove("hide");
+};
+
+//Word Generator
+const generateWord = (optionValue) => {
+  let optionsButtons = document.querySelectorAll(".options");
+  //If optionValur matches the button innerText then highlight the button
+  optionsButtons.forEach((button) => {
+    if (button.innerText.toLowerCase() === optionValue) {
+      button.classList.add("active");
+    }
+    button.disabled = true;
+  });
+
+  //initially hide letters, clear previous word
+  letterContainer.classList.remove("hide");
+  userInputSection.innerText = "";
+
+  let optionArray = options[optionValue];
+  //choose random word
+  chosenWord = optionArray[Math.floor(Math.random() * optionArray.length)];
+  chosenWord = chosenWord.toUpperCase();
+
+  //replace every letter with span containing dash
+  let displayItem = chosenWord.replace(/./g, '<span class="dashes">_</span>');
+
+  //Display each element as span
+  userInputSection.innerHTML = displayItem;
+};
+
+//Initial Function (Called when page loads/user presses new game)
+const initializer = () => {
+  winCount = 0;
+  count = 0;
+
+  //Initially erase all content and hide letteres and new game button
+  userInputSection.innerHTML = "";
+  optionsContainer.innerHTML = "";
+  letterContainer.classList.add("hide");
+  newGameContainer.classList.add("hide");
+  letterContainer.innerHTML = "";
+
+  //For creating letter buttons
+  for (let i = 65; i < 91; i++) {
+    let button = document.createElement("button");
+    button.classList.add("letters");
+    //Number to ASCII[A-Z]
+    button.innerText = String.fromCharCode(i);
+    //character button click
+    button.addEventListener("click", () => {
+      let charArray = chosenWord.split("");
+      let dashes = document.getElementsByClassName("dashes");
+      //if array contains clciked value replace the matched dash with letter else dram on canvas
+      if (charArray.includes(button.innerText)) {
+        charArray.forEach((char, index) => {
+          //if character in array is same as clicked button
+          if (char === button.innerText) {
+            //replace dash with letter
+            dashes[index].innerText = char;
+            //increment counter
+            winCount += 1;
+            //if winCount equals word lenfth
+            if (winCount == charArray.length) {
+              resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>The word was <span>${chosenWord}</span></p>`;
+              //block all buttons
+              blocker();
+            }
+          }
+        });
+      } else {
+        //lose count
+        count += 1;
+        //for drawing man
+        drawMan(count);
+        //Count==6 because head,body,left arm, right arm,left leg,right leg
+        if (count == 6) {
+          resultText.innerHTML = `<h2 class='lose-msg'>You Lose!!</h2><p>The word was <span>${chosenWord}</span></p>`;
+          blocker();
+        }
+      }
+      //disable clicked button
       button.disabled = true;
     });
-    elements.newGameContainer.classList.remove("hide");
+    letterContainer.append(button);
+  }
+
+  displayOptions();
+  //Call to canvasCreator (for clearing previous canvas and creating initial canvas)
+  let { initialDrawing } = canvasCreator();
+  //initialDrawing would draw the frame
+  initialDrawing();
+};
+
+//Canvas
+const canvasCreator = () => {
+  let context = canvas.getContext("2d");
+  context.beginPath();
+  context.strokeStyle = "#000";
+  context.lineWidth = 2;
+
+  //For drawing lines
+  const drawLine = (fromX, fromY, toX, toY) => {
+    context.moveTo(fromX, fromY);
+    context.lineTo(toX, toY);
+    context.stroke();
   };
 
-  const generateWord = (optionValue) => {
-    elements.letterContainer.classList.remove("hide");
-    elements.userInputSection.innerText = "";
-
-    let optionArray = options[optionValue];
-    chosenWord = optionArray[Math.floor(Math.random() * optionArray.length)].toUpperCase();
-    
-    let displayItem = chosenWord.replace(/./g, '<span class="dashes">_</span>');
-    elements.userInputSection.innerHTML = displayItem;
+  const head = () => {
+    context.beginPath();
+    context.arc(70, 30, 10, 0, Math.PI * 2, true);
+    context.stroke();
   };
 
-  const initializer = () => {
-    winCount = 0;
-    count = 0;
-
-    elements.userInputSection.innerHTML = "";
-    elements.letterContainer.classList.add("hide");
-    elements.newGameContainer.classList.add("hide");
-    elements.letterContainer.innerHTML = "";
-
-    for (let i = 65; i < 91; i++) {
-      let button = document.createElement("button");
-      button.classList.add("letters");
-      button.innerText = String.fromCharCode(i);
-      button.addEventListener("click", () => {
-        let charArray = chosenWord.split("");
-        let dashes = document.getElementsByClassName("dashes");
-
-        if (charArray.includes(button.innerText)) {
-          charArray.forEach((char, index) => {
-            if (char === button.innerText) {
-              dashes[index].innerText = char;
-              winCount += 1;
-              if (winCount == charArray.length) {
-                elements.resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>The word was <span>${chosenWord}</span></p>`;
-                blocker();
-              }
-            }
-          });
-        } else {
-          count += 1;
-          if (count == 6) {
-            elements.resultText.innerHTML = `<h2 class='lose-msg'>You Lose!!</h2><p>The word was <span>${chosenWord}</span></p>`;
-            blocker();
-          }
-        }
-        button.disabled = true;
-      });
-      elements.letterContainer.append(button);
-    }
-
-    displayOptions();
+  const body = () => {
+    drawLine(70, 40, 70, 80);
   };
 
-  const initializeGame = () => {
-    displayOptions();
-    initializer();
+  const leftArm = () => {
+    drawLine(70, 50, 50, 70);
   };
 
-  elements.newGameButton.addEventListener("click", initializeGame);
-  initializeGame();  // Call this when page loads
-});
+  const rightArm = () => {
+    drawLine(70, 50, 90, 70);
+  };
 
+  const leftLeg = () => {
+    drawLine(70, 80, 50, 110);
+  };
+
+  const rightLeg = () => {
+    drawLine(70, 80, 90, 110);
+  };
+
+  //initial frame
+  const initialDrawing = () => {
+    //clear canvas
+    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+    //bottom line
+    drawLine(10, 130, 130, 130);
+    //left line
+    drawLine(10, 10, 10, 131);
+    //top line
+    drawLine(10, 10, 70, 10);
+    //small top line
+    drawLine(70, 10, 70, 20);
+  };
+
+  return { initialDrawing, head, body, leftArm, rightArm, leftLeg, rightLeg };
+};
+
+//draw the man
+const drawMan = (count) => {
+  let { head, body, leftArm, rightArm, leftLeg, rightLeg } = canvasCreator();
+  switch (count) {
+    case 1:
+      head();
+      break;
+    case 2:
+      body();
+      break;
+    case 3:
+      leftArm();
+      break;
+    case 4:
+      rightArm();
+      break;
+    case 5:
+      leftLeg();
+      break;
+    case 6:
+      rightLeg();
+      break;
+    default:
+      break;
+  }
+};
+
+//New Game
+newGameButton.addEventListener("click", initializer);
+window.onload = initializer;
