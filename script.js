@@ -19,14 +19,14 @@ animals: [
     "Lion", "Tiger", "Elephant", "Giraffe", "Zebra", "Kangaroo", "Panda", "Koala", "Monkey", "Gorilla",
     "Dog", "Cat", "Horse", "Dolphin", "Whale", "Penguin", "Turtle", "Butterfly", "Eagle", "Owl",
     "Wolf", "Fox", "Bear", "Cheetah", "Leopard", "Puma", "Raccoon", "Penguin", "Sloth", "Ostrich",
-    "Polar Bear", "Hedgehog", "Peacock", "Lynx", "Red Panda", "Arctic Fox", "Chameleon", "Meerkat", "Squirrel", "Red Fox"
+    "PolarBear", "Hedgehog", "Peacock", "Lynx", "RedPanda", "ArcticFox", "Chameleon", "Meerkat", "Squirrel", "RedFox"
 ],
 
 countries: [
     "UnitedStates", "China", "India", "Brazil", "Indonesia", "Pakistan", "Nigeria", "Bangladesh", "Russia", "Mexico",
     "Japan", "Ethiopia", "Philippines", "Egypt", "Vietnam", "DRCongo", "Turkey", "Iran", "Germany", "Thailand",
     "UnitedKingdom", "France", "Italy", "SouthAfrica", "Tanzania", "Kenya", "Argentina", "SouthKorea", "Colombia", "Algeria",
-    "Uganda", "Sudan", "Iraq", "Poland", "Canada", "Morocco", "Afghanistan", "Saudi Arabia", "Peru", "Venezuela",
+    "Uganda", "Sudan", "Iraq", "Poland", "Canada", "Morocco", "Afghanistan", "SaudiArabia", "Peru", "Venezuela",
     "Malaysia", "Uzbekistan", "Angola", "Mozambique", "Ghana", "Yemen", "Nepal", "Venezuela", "Cameroon", "IvoryCoast",
     "NorthKorea", "Netherlands", "Belgium", "Greece", "Portugal", "CzechRepublic", "Sweden", "Hungary", "Switzerland", "Austria"
 ]
