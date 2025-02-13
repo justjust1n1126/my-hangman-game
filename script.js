@@ -34,7 +34,7 @@ let options = {
   valentines: [
     "Love", "Heart", "Cupid", "Romance", "Flowers", "Chocolates", "Roses", "Affection", "Sweetheart", "Passion",
     "Valentine", "Date", "Hug", "Kiss", "Bouquet", "Proposal", "Adore", "Cherish", "Darling", "Devotion",
-    "Embrace", "Gift", "Harmony", "Intimacy", "Joy", "Lover", "Partner", "Romantic", "Together", "Unity"
+    "Embrace", "Gift", "Harmony", "Intimacy", "Joy", "Lover", "Partner", "Romantic", "Together", "Unity", "LoveIsInTheAir"
   ]
 };
 
