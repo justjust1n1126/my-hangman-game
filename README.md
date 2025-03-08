@@ -1,2 +1,2 @@
 # my-hangman-game
-I made this game using Javascript, HTML, and CSS. I randomly decided to make it as a project for class in 7th grade as my teacher requested a "choose whatever you want" project. I did it because I literally told myself why not? And here we are. 
+I made this game using Javascript, HTML, and CSS. I randomly decided to make it as a project for class in 7th grade as my teacher requested a "choose whatever you want" project. I had no prior coding experience, and i learnt during spring break. i decided to create  it because I literally told myself why not? I had always wanted to learn how to code and i decided to take the iniciative and begin.  And here we are. 
